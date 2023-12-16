@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+      <div class="feedback-section">
+        <h2>Customer Feedback</h2>
+        <p>Explore what our clients are saying about us. Share your own thoughts and suggestions!</p>
+  
+        <form [formGroup]="feedbackForm" (ngSubmit)="submitFeedback()">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <textarea formControlName="feedback" class="form-control" rows="4" placeholder="Your Feedback"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" [disabled]="!feedbackForm.valid">Submit Feedback</button>
+        </form>
+  
+        <!-- Display all feedback entries -->
+        <div *ngIf="feedbackEntries.length > 0">
+          <h3>All Feedback:</h3>
+          <div class="feedback-entry" *ngFor="let entry of feedbackEntries">
+            <p><strong>Name:</strong> {{ entry.name }}</p>
+            <p><strong>Feedback:</strong> {{ entry.feedback }}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

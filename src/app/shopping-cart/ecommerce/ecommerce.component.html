@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gym Site</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Add custom styles -->
+  <style>
+    body {
+      background-color: rgba(248, 249, 250, 0.8); /* Light background color with transparency */
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+      background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+    }
+
+    .navbar-light .navbar-toggler-icon {
+      background-color: #007bff; /* Blue toggle icon */
+    }
+
+    .logo {
+      margin-right: 10px; /* Adjust the margin */
+    }
+
+    .card {
+      border: none;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* Zoom in on hover */
+    }
+
+    .card img {
+      border-radius: 8px; /* Rounded corners for images */
+    }
+
+    .btn-primary {
+      background-color: #007bff; /* Blue button color */
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    /* Add more custom styles based on the gym theme */
+  </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#" routerLink="/ecommerce">
+      <img src="assets/images/fitness.jpg" alt="Logo" height="60" width="80" class="logo">
+      <h3 class="text-dark mb-0">GymBro</h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation"
+            (click)="toggleCollapsed()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarResponsive" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-dark" href="#" (click)="reset()" style="font-size: 20px; line-height: 1.5;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#" routerLink="/sale" style="font-size: 20px; line-height: 1.5;">
+            Feedback
+          </a>
+        </li>
+        <li>
+          <a  class="nav-link text-dark" href="#" routerLink="/pip" style="font-size: 20px; line-height: 1.5;" >Promotion</a>
+        </li>
+        <!-- Basket icon -->
+        
+        <!-- Add more navigation links here -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content Section -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-9">
+            <app-cards #productsC [hidden]="orderFinished" (productAdded)="addProductToCart($event)"></app-cards>
+        </div>
+        <div class="col-md-3">
+            <app-panier
+                [productAdded]="productAdded"
+                (onOrderFinished)=finishOrder($event) #shoppingCartC
+                [hidden]="orderFinished"></app-panier>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

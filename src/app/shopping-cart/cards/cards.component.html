@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body style="background-color: rgba(255, 255, 255, 0.8);">
+
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let p of productOrders">
+      <div class="card h-100 padding-0" style="max-width: 14rem; border: 1px solid #dee2e6; border-radius: 10px; overflow: hidden;">
+        <img class="card-img-top" src="{{ p.product.imageart }}" alt="{{ p.product.designation }}" style="border-bottom: 1px solid #dee2e6;">
+        <div class="card-body">
+          <h5 class="card-title mb-2" style="font-size: 1.5rem; color: #343a40;">{{ p.product.designation }}</h5>
+          <p class="card-text mb-2" style="font-size: 1rem; color: #6c757d;">{{ p.product.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 1.25rem; color: #343a40;">
+            Price: {{ p.product.prix }} TND
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 1.25rem; color: #343a40;">
+            Stock: {{ p.product.qtestock }}
+          </li>
+        </ul>
+        <div class="card-body">
+          <button class="btn btn-primary btn-block" (click)="addProductToCart(p)" [disabled]="p.product.qtestock === 0">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

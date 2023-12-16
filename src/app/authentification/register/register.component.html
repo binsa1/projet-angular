@@ -1,0 +1,41 @@
+<form (ngSubmit)="Ajoutuser()" style="max-width: 400px; margin: auto; padding: 20px; background-color: #f8f9fa; border: 1px solid #ced4da; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+  <div class="mb-3">
+    <input type="text" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="user.email">
+  </div>
+  <div class="mb-3">
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password" [(ngModel)]="user.password">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" [(ngModel)]="user.firstname">
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" [(ngModel)]="user.lastname">
+  </div>
+
+  <div>
+    <button type="submit" class="btn btn-success btn-block">Signin</button>
+  </div>
+</form>
+
+<style>
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  .form-control:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+  }
+
+  .btn-success {
+    background-color: #007bff;
+    border-color: #f9f9f9;
+  }
+
+  .btn-success:hover {
+    background-color: #000000;
+    border-color: #ffffff;
+  }
+</style>

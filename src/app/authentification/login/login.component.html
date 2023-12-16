@@ -1,0 +1,69 @@
+<div class="form-signin w-50 m-auto">
+  <form (ngSubmit)="loginUser()">
+    <h3 class="h3 mb-3 font-weight-normal text-center">Login</h3>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" [(ngModel)]="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" [(ngModel)]="password" required>
+    </div>
+
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  /* Add your custom styles here */
+
+  .form-signin {
+    background-color: rgba(255, 255, 255, 0.9); /* Set the background color to white with some transparency */
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-signin form {
+    margin-bottom: 0;
+  }
+
+  .h3 {
+    color: #333333;
+  }
+
+  .mb-3 {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-weight: bold;
+    color: #555555;
+  }
+
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0e110f;
+    border-color: #ffffff;
+  }
+</style>

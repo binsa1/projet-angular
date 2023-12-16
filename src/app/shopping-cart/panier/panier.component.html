@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body style="background-color: rgba(255, 255, 255, 0.8);">
+
+  <div class="card border-primary mb-3" style="max-width: 50rem; margin: auto; margin-top: 50px;" id="htmlData">
+    <div class="card-header bg-primary text-white text-center">
+      <h2>Shopping Cart</h2>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Total: {{ total }} TND</h4>
+      <hr>
+      <h5 class="card-title">Items in Cart:</h5>
+
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let order of productAdded">
+          <div class="d-flex justify-content-between align-items-center">
+            <span>{{ order.product.designation }}</span>
+            <div class="input-group">
+              <input type="number" class="form-control" min="0" max="{{ order.product.qtestock }}" [(ngModel)]="order.quantity" (click)="addTotal(order.product.prix, order.quantity)" />
+              <div class="input-group-append">
+                <span class="input-group-text">Qty</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <button class="btn btn-primary btn-block mt-3"
+              (click)="checkoutProduct()"
+              [disabled]="productAdded.length === 0">
+        Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

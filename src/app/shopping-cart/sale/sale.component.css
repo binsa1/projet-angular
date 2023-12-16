@@ -1,0 +1,60 @@
+.feedback-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #6c757d;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: #343a40;
+    font-weight: bold;
+  }
+  
+  textarea, input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+  }
+  
+  /* Style feedback entries */
+  .feedback-entry {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-entry p {
+    margin-bottom: 10px;
+  }
+  
+  .feedback-entry hr {
+    margin: 10px 0;
+    border: none;
+    border-top: 1px solid #ced4da;
+  }
+  

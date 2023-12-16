@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: rgba(248, 249, 250, 0.8); /* Transparent white background */
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-style: italic;
+            text-align: center;
+        }
+
+        input.mat-input {
+            width: 300px;
+            font-size: 16px;
+            margin-left: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        app-create button {
+            background-color: #28a745;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        table.mat-elevation-z8 {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th.mat-header-cell,
+        td.mat-cell {
+            text-align: left;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        th.mat-header-cell {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        td.mat-cell {
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        mat-paginator {
+            margin-top: 20px;
+        }
+
+        /* Added margin to create spacing between buttons */
+        .button-wrapper {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Your existing HTML code -->
+    <div class="container">
+        <div>
+            <app-create></app-create>
+        </div>
+
+        <div>
+            <input matInput (keyup)="filter($event)" placeholder="Search" class="mat-input">
+        </div>
+
+        <table mat-table [dataSource]="products" class="mat-elevation-z8" #mytable matSort>
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let  row; columns: columns;"></tr>
+            <ng-container matColumnDef="imageart">
+                <th mat-header-cell *matHeaderCellDef>Image</th>
+                <td mat-cell *matCellDef="let t"><img src={{t.imageart}} alt="" width="80" height="80" /></td>
+            </ng-container>
+            <ng-container matColumnDef="designation">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                <td mat-cell *matCellDef="let t">{{ t.designation}}</td>
+            </ng-container>
+            <ng-container matColumnDef="marque">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Brand</th>
+                <td mat-cell *matCellDef="let t">{{ t.marque}}</td>
+            </ng-container>
+            <ng-container matColumnDef="prix">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+                <td mat-cell *matCellDef="let t">{{ t.prix}} TND</td>
+            </ng-container>
+            <ng-container matColumnDef="_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+                <td mat-cell *matCellDef="let t">
+                    <div class="button-wrapper">
+                        <app-view [productId]="t._id"></app-view>
+                    </div>
+                    <div class="button-wrapper">
+                        <app-edit [productId]="t._id"></app-edit>
+                    </div>
+                </td>
+            </ng-container>
+        </table>
+
+        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
